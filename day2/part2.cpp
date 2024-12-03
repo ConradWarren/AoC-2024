@@ -1,4 +1,4 @@
-#include "core.h"
+#include "../core.h"
 
 bool Is_Valid_Increasing(std::vector<int>& nums, int idx, bool used_skip, std::vector<int>& cache){
 

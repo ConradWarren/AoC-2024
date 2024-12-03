@@ -1,4 +1,4 @@
-#include "core.h"
+#include "../core.h"
 
 int Get_Num(std::string& str, int idx){
 

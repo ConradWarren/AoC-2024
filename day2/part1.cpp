@@ -1,4 +1,4 @@
-#include "core.h"
+#include "../core.h"
 
 int main() {
     std::vector<std::vector<int>> input_data;
