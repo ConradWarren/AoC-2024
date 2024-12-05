@@ -36,7 +36,7 @@ void Split_Nums(const std::string& input_str, std::vector<T>& result){
 
 	for(int i = 0; i < input_str.size(); i++){
 		
-		if(!empty_flag && (input_str[i] == ' ' || input_str[i] == ',' || input_str[i] == '\n')){
+		if(!empty_flag && (input_str[i] < '0' || input_str[i] > '9')){
 			result.push_back((negative_flag) ? -current : current);
 			current = 0;
 			empty_flag = true;
