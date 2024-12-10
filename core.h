@@ -13,6 +13,7 @@
 #include <unordered_map>
 #include <algorithm>
 #include <climits>
+#include <numeric>
 
 template <typename T>
 T String_To_Num(const std::string& str){
@@ -53,6 +54,20 @@ void Split_Nums(const std::string& input_str, std::vector<T>& result){
 
 	if(!empty_flag){
 		result.push_back((negative_flag) ? -current : current);
+	}
+}
+
+void Read_Data(const std::string& file_path, std::string& result){
+	
+	std::ifstream file(file_path);
+	std::string current;
+	
+	if(!file.is_open()){
+		std::cerr<<"Error: Could not open file"<<std::endl;
+	}
+
+	while(std::getline(file, current)){
+		result += current;
 	}
 }
 
