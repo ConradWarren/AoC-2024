@@ -16,6 +16,26 @@
 #include <numeric>
 
 template <typename T>
+void Print_Vec(const std::vector<T>& vec){
+
+    std::cout<<"{";
+    for(int i = 0; i < vec.size(); i++){
+        std::cout<<vec[i];
+        if(i+1 < vec.size()) std::cout<<", ";
+    }
+    std::cout<<"}\n";
+}
+
+template <typename T>
+void Print_Vec(const std::vector<std::vector<T>>& vec){
+
+    for(int i = 0; i < vec.size(); i++){
+        Print_Vec(vec[i]);
+    }
+    std::cout<<"\n";
+}
+
+template <typename T>
 T String_To_Num(const std::string& str){
 	
 	T result = 0;
