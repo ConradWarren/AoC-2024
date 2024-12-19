@@ -48,6 +48,51 @@ T String_To_Num(const std::string& str){
 	return result;
 }
 
+void Split_String(const std::string& input_str, std::vector<std::string>& result){
+
+    std::string current;
+
+    for(int i = 0; i < input_str.size(); i++){
+
+        bool is_valid = (input_str[i] >= 'a' && input_str[i] <= 'z') || (input_str[i] >= 'A' && input_str[i] <= 'Z');
+        if(!is_valid && !current.empty()){
+            result.push_back(current);
+            current.clear();
+        }else if(is_valid){
+            current += input_str[i];
+        }
+    }
+
+    if(!current.empty()){
+        result.push_back(current);
+    }
+}
+
+void Split_String(const std::string& input_str, std::vector<std::string>& result, const std::vector<char>& to_remove){
+
+    bool arr[256];
+    std::fill(arr, arr + 256, false);
+
+    for(int i = 0; i < to_remove.size(); i++){
+        arr[to_remove[i]] = true;
+    }
+
+    std::string current;
+
+    for(int i = 0; i < input_str.size(); i++){
+
+        if(arr[input_str[i]] && !current.empty()){
+            result.push_back(current);
+            current.clear();
+        }else if(!arr[input_str[i]]){
+            current += input_str[i];
+        }
+    }
+
+    if(!current.empty()){
+        result.push_back(current);
+    }
+}
 template <typename T>
 void Split_Nums(const std::string& input_str, std::vector<T>& result){
 
