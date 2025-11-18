@@ -17,7 +17,8 @@
 #include <utility>
 #include <array>
 #include <cassert>
-#include <iterator>
+#include <iterator> 
+#include <tuple> 
 
 namespace core{
 	
@@ -249,8 +250,17 @@ namespace core{
 			}
 			return result;
 		}
+		if constexpr (std::is_same_v<T, std::vector<std::vector<long long>>>){
+
+			T result;
+			std::string current;
+			while(std::getline(file, current)){
+				result.emplace_back(Split_Nums<std::vector<long long>>(current));
+			}
+			return result;
+		} 
 		
-		if constexpr (std::is_same_v<T, std::vector<int>>){
+		if constexpr (std::is_same_v<T, std::vector<int>> || std::is_same_v<T, std::vector<long long>>){
 			
 			std::string str;
 			std::string current;
